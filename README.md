@@ -17,13 +17,10 @@ This is my personal portfolio website showcasing my projects, skills, and experi
 - **Frontend:** HTML, CSS, JavaScript
 - **Design:** Responsive and minimal UI
 
-## 📷 Preview
 
-![Portfolio Screenshot](./assets/preview.png)
 
 ## 🔗 Live Demo
-
-[View Live Demo](https://your-live-demo-link.com)
+use liveserver extension 
 
 ## 📁 How to Run Locally
 
