@@ -10,11 +10,15 @@
   </head>
   <body>
     <nav id="desktop-nav">
-      <div class="logo">Nethavath Praveen</div>
+   
       <div>
         <ul class="nav-links">
+          <li><a href="#profile">Home</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#leadership">Highlights</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -29,8 +33,12 @@
           <span></span>
         </div>
         <div class="menu-links">
+          <li><a href="#profile" onclick="toggleMenu()">Home</a></li>
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
           <li><a href="#achievements" onclick="toggleMenu()">Achievements</a></li>
+          <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+          <li><a href="#leadership" onclick="toggleMenu()">Highlights</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </div>
@@ -45,29 +53,12 @@
         <h1 class="title">Nethavath Praveen</h1>
         <p class="section__text__p2">Undergraduate Student at IIIT Hyderabad</p>
         <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/praveen-resume.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
+          <button class="btn btn-color-2" onclick="window.open('./assets/praveen-resume.pdf')">Download CV</button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
         </div>
         <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/nethavath-praveen-0a7a84287/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/Praveen-ing'"
-          />
+          <img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon" onclick="location.href='https://www.linkedin.com/in/nethavath-praveen-0a7a84287/'" />
+          <img src="./assets/github.png" alt="My Github profile" class="icon" onclick="location.href='https://github.com/Praveen-ing'" />
         </div>
       </div>
     </section>
@@ -76,58 +67,46 @@
       <h1 class="title">About Me</h1>
       <div class="section-container">
         <div class="section__pic-container">
-          <img
-            src="./assets/praveen-about.jpg"
-            alt="Profile picture"
-            class="about-pic"
-          />
+          <img src="./assets/praveen-about.jpg" alt="Profile picture" class="about-pic" />
         </div>
         <div class="about-details-container">
           <div class="about-containers">
             <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
+              <img src="./assets/experience.png" alt="Experience icon" class="icon" />
               <h3>Experience</h3>
               <p>2+ years <br />Frontend Development</p>
             </div>
             <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
+              <img src="./assets/education.png" alt="Education icon" class="icon" />
               <h3>Education</h3>
-              <p>
-                IIIT Hyderabad<br />B.Tech in Electronics and Communication
-                Engineering
-              </p>
+              <p>IIIT Hyderabad<br />B.Tech in Electronics and Communication Engineering</p>
             </div>
           </div>
           <div class="text-container">
             <p>
-              I am a passionate Electronics and Communication Engineering
-              student with a strong interest in solving real-world problems
-              using technology. I actively explore full-stack development,
-              embedded systems, and data-driven applications, continually
-              building my skills in both software and hardware domains. With a
-              growing interest in Software Engineering and Data Engineering
-              roles, I am driven by curiosity and a commitment to continuous
-              learning. I take initiative in every project I undertake, aspiring
-              to create impactful solutions through innovation, collaboration,
-              and a deep understanding of technology.
+              I am a passionate Electronics and Communication Engineering student with a strong interest in solving real-world problems using technology. I actively explore full-stack development, embedded systems, and data-driven applications, continually building my skills in both software and hardware domains. With a growing interest in Software Engineering and Data Engineering roles, I am driven by curiosity and a commitment to continuous learning. I take initiative in every project I undertake, aspiring to create impactful solutions through innovation, collaboration, and a deep understanding of technology.
             </p>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#achievements'"
-      />
+    </section>
+    <!-- Experience Section -->
+    <section id="experience">
+      <p class="section__text__p1">My</p>
+      <h1 class="title">Experience</h1>
+      <div class="projects-list">
+        <div class="project-card">
+          <h3>Order Management System – Software Intern (Remote)</h3>
+          <p>
+            <strong>NVIRI Solutions</strong> &nbsp; | &nbsp; Jan 2025 – Apr 2025<br />
+            Developed a cross-platform mobile application enabling merchants in both F&B and non-F&B (e-commerce) sectors to efficiently manage and track customer orders in real-time.<br />
+            Followed <b>Clean Architecture</b> principles using <b>Flutter</b> for frontend and a <b>Java SpringBoot</b>-based <b>microservices</b> architecture for the backend.<br />
+            Designed <b>PostgreSQL</b> schemas from scratch with 35+ relational tables to handle large volumes of structured data.<br />
+            <a href="https://nviri.com/" class="btn btn-color-2 project-btn" target="_blank">Company</a>
+            <a href="https://iiithydstudents-my.sharepoint.com/:v:/g/personal/nethavath_praveen_students_iiit_ac_in/Ech3gzr5eS9PmzxFALb9vncBz1bBL0ranmY5ymC82yUYgw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=7I5yjl" class="btn btn-color-2 project-btn" target="_blank">Demo</a>
+          </p>
+        </div>
+      </div>
     </section>
     <section id="achievements">
       <p class="section__text__p1">Explore My</p>
@@ -138,11 +117,7 @@
             <h2 class="experience-sub-title">JEE (Main) 2023</h2>
             <div class="article-container">
               <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Checkmark icon"
-                  class="icon"
-                />
+                <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
                 <div>
                   <h3>All India Rank</h3>
                   <p>2107</p>
@@ -154,11 +129,7 @@
             <h2 class="experience-sub-title">JEE (Advanced) 2023</h2>
             <div class="article-container">
               <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Checkmark icon"
-                  class="icon"
-                />
+                <img src="./assets/checkmark.png" alt="Checkmark icon" class="icon" />
                 <div>
                   <h3>All India Rank</h3>
                   <p>3894</p>
@@ -168,125 +139,134 @@
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
     </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-3.png"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">FooDel</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Praveen-ing/FooDel'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Praveen-ing/FooDel'"
-              >
-                Live Demo
-              </button>
-            </div>
+    <!-- Skills Section -->
+    <section id="skills">
+      <p class="section__text__p1">My</p>
+      <h1 class="title">Technical Skills</h1>
+      <div class="skills-container">
+        <div class="skill-card">
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Bash</span>
           </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/Risc-v.png"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">RISC-V Design</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Praveen-ing/riscv-processor-design'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Praveen-ing/riscv-processor-design'"
-              >
-                Live Demo
-              </button>
-            </div>
+        </div>
+        <div class="skill-card">
+          <h3>Databases</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">PostgreSQL</span>
           </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-1.png"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
-            </div>
+        </div>
+        <div class="skill-card">
+          <h3>Frameworks/Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">Flutter</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Arduino</span>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
+    </section>
+    <!-- Leadership & Achievements Section -->
+    <section id="leadership">
+      <p class="section__text__p1">Leadership & Achievements</p>
+      <h1 class="title">Highlights</h1>
+      <div class="leadership-container">
+        <ul class="leadership-list">
+          <li><strong>JEE Mains AIR 2107</strong></li>
+          <li><strong>JEE Advanced AIR 3894</strong></li>
+          <li><strong>FFE Scholar</strong></li>
+          <li><strong>NSS Co-ordinator (Spring 2025 – Present)</strong></li>
+          <li><strong>Felicity Fest Marketing Team Member</strong></li>
+          <li><strong>NCC ‘A’ Certificate Holder</strong></li>
+        </ul>
+      </div>
+    </section>
+    <!-- Projects Section (No Images, Resume Descriptions) -->
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="projects-list">
+        <div class="project-card">
+          <h3>CampusMart @ IIITH</h3>
+          <p>
+            Engineered a comprehensive MERN stack marketplace for the IIIT Hyderabad community, incorporating 3 core data models and 15+ RESTful API endpoints with robust security features including JWT authentication and bcrypt password encryption. Core functionalities include user registration restricted to university domains, dynamic item search with multi-category filters, a responsive shopping cart system, and user profiles with detailed transaction history, powered by 10+ modular and reusable React components.
+          </p>
+          <div class="btn-container">
+            <a href="https://github.com/Praveen-ing/CampusMart-IIITH" class="btn btn-color-2 project-btn" target="_blank">GitHub</a>
+            <a href="https://campusmart-iiith-1.onrender.com/" class="btn btn-color-2 project-btn" target="_blank">Live Demo</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>COVID-19 Data Visualization Dashboard</h3>
+          <p>
+            Engineered a multi-view data visualization dashboard using HTML, CSS, and JavaScript to analyze COVID-19 and Air Quality Index (AQI) data across global, national, and regional scales for 5+ major Indian cities. Implemented a client-side data pipeline with D3.js to asynchronously fetch and parse multiple CSV datasets, powering a suite of interactive charts and maps to reveal correlations between pandemic lockdowns and air quality.
+          </p>
+          <div class="btn-container">
+            <a href="https://github.com/Praveen-ing/Covid-19-Data-Visualizer" class="btn btn-color-2 project-btn" target="_blank">GitHub</a>
+            <a href="https://covid-19-data-visualizer-4zyg.onrender.com" class="btn btn-color-2 project-btn" target="_blank">Live Demo</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>RISC-V 5-Stage Pipelined Processor</h3>
+          <p>
+            Designed a 32-bit RISC-V processor in Verilog with both single-cycle and 5-stage pipelined architectures, implementing full hazard detection and resolution. Developed core modules including ALU, Data Memory, and a Forwarding Unit to handle data/control hazards through forwarding and pipeline flushing.
+          </p>
+          <div class="btn-container">
+            <a href="https://github.com/Praveen-ing/riscv-processor-design/tree/main" class="btn btn-color-2 project-btn" target="_blank">GitHub</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>FooDel - MERN Stack Food Ordering App (Ongoing)</h3>
+          <p>
+            Building a full-stack food ordering app using the MERN stack, featuring JWT auth, secure payments via Stripe, REST APIs, a dynamic cart, and an admin panel for real-time order management.
+          </p>
+          <div class="btn-container">
+            <a href="https://github.com/Praveen-ing/FooDel-Project-Repo" class="btn btn-color-2 project-btn" target="_blank">GitHub</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>CodeCrux</h3>
+          <p>
+            Developed CodeCrux, a platform for coding practice and contests. Features include user authentication, problem submissions, leaderboard, and real-time feedback. Built with a modern tech stack for scalability and performance.
+          </p>
+          <div class="btn-container">
+            <a href="https://github.com/Praveen-ing/CodeCrux" class="btn btn-color-2 project-btn" target="_blank">GitHub</a>
+            <a href="https://codecrux-4tw1.onrender.com/" class="btn btn-color-2 project-btn" target="_blank">Live Demo</a>
+          </div>
+        </div>
+      </div>
     </section>
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
+          <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
           <p>
-            <a href="mailto:praveennayak045@gmail.com"
-              >praveennayak045@gmail.com</a
-            >
+            <a href="mailto:praveennayak045@gmail.com">praveennayak045@gmail.com</a>
           </p>
         </div>
         <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
+          <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
           <p>
-            <a href="https://www.linkedin.com/in/nethavath-praveen-0a7a84287/"
-              >LinkedIn</a
-            >
+            <a href="https://www.linkedin.com/in/nethavath-praveen-0a7a84287/">LinkedIn</a>
           </p>
         </div>
       </div>
@@ -295,8 +275,12 @@
       <nav>
         <div class="nav-links-container">
           <ul class="nav-links">
+            <li><a href="#profile">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#leadership">Highlights</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
