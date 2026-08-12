@@ -2,113 +2,90 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   SiRust, SiJavascript, SiCplusplus, SiPython, SiOpenjdk, 
-  SiReact, SiNodedotjs, SiExpress, SiSpringboot, SiFlask,
-  SiMongodb, SiRedis, SiNeo4J, SiPostgresql, SiMysql, SiKubernetes
+  SiReact, SiNodedotjs, SiSpringboot, SiFlask,
+  SiMongodb, SiRedis, SiNeo4J, SiPostgresql, SiKubernetes
 } from 'react-icons/si';
-import { FaCode, FaServer, FaDatabase, FaCloud, FaCogs, FaAws, FaDocker } from 'react-icons/fa';
+import { FaAws, FaDocker } from 'react-icons/fa';
 import './Skills.css';
 
 const Skills = () => {
-  const skillCategories = [
+  const toolsList = [
     {
-      title: "Languages",
-      icon: <FaCode size={18} />,
-      skills: [
-        { name: "Rust", icon: <SiRust color="#f74c00" /> },
-        { name: "JavaScript (ES6+)", icon: <SiJavascript color="#f7df1e" /> },
-        { name: "C & C++", icon: <SiCplusplus color="#00599c" /> },
-        { name: "Python", icon: <SiPython color="#3776ab" /> },
-        { name: "Java", icon: <SiOpenjdk color="#ed8b00" /> },
-        { name: "SQL & Bash", icon: null }
-      ]
+      name: "Rust",
+      role: "Systems & LLM CLI",
+      desc: "Low-latency systems programming, AKS remediation tools, memory safety, and SSH multiplexing.",
+      icon: <SiRust color="#f74c00" size={26} />
     },
     {
-      title: "Frameworks & APIs",
-      icon: <FaServer size={18} />,
-      skills: [
-        { name: "Node.js & Express", icon: <SiNodedotjs color="#339933" /> },
-        { name: "React.js", icon: <SiReact color="#61dafb" /> },
-        { name: "Java Spring Boot", icon: <SiSpringboot color="#6db33f" /> },
-        { name: "Flask & FastAPI", icon: <SiFlask color="#ffffff" /> },
-        { name: "REST APIs & WebSockets", icon: null },
-        { name: "GraphQL", icon: null }
-      ]
+      name: "React.js & JavaScript",
+      role: "Frontend Web Stack",
+      desc: "Dynamic glassmorphic UIs, state management, D3.js visualization, and component architecture.",
+      icon: <SiReact color="#61dafb" size={26} />
     },
     {
-      title: "Databases",
-      icon: <FaDatabase size={18} />,
-      skills: [
-        { name: "MongoDB", icon: <SiMongodb color="#47a248" /> },
-        { name: "Redis", icon: <SiRedis color="#dc382d" /> },
-        { name: "Neo4j Graph DB", icon: <SiNeo4J color="#008cc1" /> },
-        { name: "PostgreSQL", icon: <SiPostgresql color="#4169e1" /> },
-        { name: "MySQL", icon: <SiMysql color="#4479a1" /> }
-      ]
+      name: "Java Spring Boot",
+      role: "Backend Microservices",
+      desc: "Enterprise microservice boundaries, RESTful API design, Clean Architecture, and performance optimization.",
+      icon: <SiSpringboot color="#6db33f" size={26} />
     },
     {
-      title: "Cloud & DevOps",
-      icon: <FaCloud size={18} />,
-      skills: [
-        { name: "Azure & AKS", icon: null },
-        { name: "AWS & GCP", icon: <FaAws color="#ff9900" /> },
-        { name: "Kubernetes & Docker", icon: <SiKubernetes color="#326ce5" /> },
-        { name: "CI/CD & Harness", icon: null },
-        { name: "Observe Webhooks & Vault", icon: null }
-      ]
+      name: "PostgreSQL & MySQL",
+      role: "Relational Databases",
+      desc: "Schema design, 35+ table normalization, complex JOINs, PyMySQL transactions, and indexing.",
+      icon: <SiPostgresql color="#4169e1" size={26} />
     },
     {
-      title: "Concepts & Architecture",
-      icon: <FaCogs size={18} />,
-      skills: [
-        { name: "Microservices & Distributed Systems", icon: null },
-        { name: "Enterprise Graph RAG", icon: null },
-        { name: "Clean Architecture", icon: null },
-        { name: "Operating Systems & Networks", icon: null },
-        { name: "Concurrency & POSIX Multithreading", icon: null }
-      ]
+      name: "Kubernetes & Docker",
+      role: "Cloud Orchestration",
+      desc: "Azure AKS infrastructure, container deployment, pod troubleshooting, and CI/CD automation.",
+      icon: <SiKubernetes color="#326ce5" size={26} />
+    },
+    {
+      name: "Neo4j & Gemini 2.0",
+      role: "Enterprise Graph RAG",
+      desc: "Topology graph reasoning over 60+ microservices, alert propagation tracing, and LLM integration.",
+      icon: <SiNeo4J color="#008cc1" size={26} />
+    },
+    {
+      name: "Python & PyTorch",
+      role: "AI / ML & Scripting",
+      desc: "CNN-LSTM deep learning architectures, OpenCV text processing, and Flask API backends.",
+      icon: <SiPython color="#3776ab" size={26} />
+    },
+    {
+      name: "C & C++ Systems",
+      role: "Low-Level Programming",
+      desc: "Multithreaded distributed sockets, LRU caches, POSIX Unix shell, signal handling, and memory control.",
+      icon: <SiCplusplus color="#00599c" size={26} />
     }
   ];
 
   return (
-    <section id="skills" className="skills-section">
-      <motion.div
-        className="section-header"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <span className="section-badge">Technical Stack</span>
-        <h2 className="section-title">Skills & Toolkit</h2>
-      </motion.div>
+    <section id="skills" className="sawad-tools-section">
+      <div className="sawad-section-tag">🛠️ PREMIUM TOOLS & TECH STACK</div>
+      <h2 className="sawad-section-title">Technologies & Systems I Harness</h2>
 
-      <div className="skills-container">
-        <div className="skills-matrix">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={index}
-              className="glass-card skill-cat-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <div className="skill-cat-header">
-                <div className="cat-icon">{category.icon}</div>
-                <h3 className="cat-title">{category.title}</h3>
-              </div>
+      <div className="sawad-tools-grid">
+        {toolsList.map((tool, idx) => (
+          <motion.div
+            key={idx}
+            className="sawad-card sawad-tool-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: idx * 0.08 }}
+          >
+            <div className="tool-icon-box">
+              {tool.icon}
+            </div>
 
-              <div className="skills-pills">
-                {category.skills.map((skill, sIdx) => (
-                  <div key={sIdx} className="skill-pill">
-                    {skill.icon && <span className="skill-pill-icon">{skill.icon}</span>}
-                    <span>{skill.name}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+            <div className="tool-info">
+              <h3 className="tool-name">{tool.name}</h3>
+              <span className="tool-role">{tool.role}</span>
+              <p className="tool-desc">{tool.desc}</p>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

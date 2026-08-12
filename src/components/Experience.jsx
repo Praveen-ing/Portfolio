@@ -13,7 +13,7 @@ const Experience = () => {
       type: "Internship",
       highlights: [
         "Designed and built from scratch a specialized LLM-powered IT Service Engineer CLI in Rust to autonomously diagnose and remediate Azure Kubernetes (AKS) infrastructure issues.",
-        "Engineered a 3-layer execution permission system (Hard Rails, dynamic command classification, prompt approvals) and persistent SSH ControlMaster multiplexing for low-latency troubleshooting.",
+        "Engineered a 3-layer execution permission system (Hard Rails, dynamic command classification, prompt approvals) and persistent SSH ControlMaster multiplexing for low-latency command execution.",
         "Architected an Enterprise Graph RAG platform to trace alert propagation across 60+ microservices for root-cause analysis, integrating Google Gemini 2.0 Flash & Neo4j topology graph.",
         "Re-engineered enterprise alert routing by transitioning legacy CRON jobs to an Observe observability webhook, implementing inter-instance relation logic to prevent ticket flooding."
       ],
@@ -38,87 +38,71 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="experience-section">
-      <motion.div
-        className="section-header"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <span className="section-badge">Professional Path</span>
-        <h2 className="section-title">Work Experience</h2>
-      </motion.div>
+    <section id="experience" className="sawad-experience-section">
+      <div className="sawad-section-tag">💼 WORK EXPERIENCE</div>
+      <h2 className="sawad-section-title">Professional Path & Experience</h2>
 
-      <div className="experience-container">
-        <div className="experience-timeline">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              className="timeline-card-wrapper"
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-            >
-              <div className="timeline-node">
-                <FaBriefcase size={14} />
+      <div className="sawad-experience-list">
+        {experiences.map((exp, index) => (
+          <motion.div
+            key={index}
+            className="sawad-card sawad-exp-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.15 }}
+          >
+            <div className="sawad-exp-header">
+              <div>
+                <span className="sawad-tag type-tag">{exp.type}</span>
+                <h3 className="sawad-exp-role">{exp.role}</h3>
+                <h4 className="sawad-exp-company">{exp.company}</h4>
               </div>
 
-              <div className="glass-card exp-card">
-                <div className="exp-header">
-                  <div>
-                    <span className="exp-type">{exp.type}</span>
-                    <h3 className="exp-role">{exp.role}</h3>
-                    <h4 className="exp-company">{exp.company}</h4>
-                  </div>
-
-                  <div className="exp-meta">
-                    <div className="meta-item">
-                      <FaCalendarAlt size={13} />
-                      <span>{exp.period}</span>
-                    </div>
-                    <div className="meta-item">
-                      <FaMapMarkerAlt size={13} />
-                      <span>{exp.location}</span>
-                    </div>
-                  </div>
+              <div className="sawad-exp-meta">
+                <div className="meta-pill">
+                  <FaCalendarAlt size={12} />
+                  <span>{exp.period}</span>
                 </div>
+                <div className="meta-pill">
+                  <FaMapMarkerAlt size={12} />
+                  <span>{exp.location}</span>
+                </div>
+              </div>
+            </div>
 
-                <ul className="exp-bullets">
-                  {exp.highlights.map((bullet, idx) => (
-                    <li key={idx}>{bullet}</li>
-                  ))}
-                </ul>
+            <ul className="sawad-exp-bullets">
+              {exp.highlights.map((bullet, idx) => (
+                <li key={idx}>{bullet}</li>
+              ))}
+            </ul>
 
-                <div className="exp-footer">
-                  <div className="exp-tags">
-                    {exp.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="tag-badge">{tag}</span>
-                    ))}
-                  </div>
+            <div className="sawad-exp-footer">
+              <div className="sawad-exp-tags">
+                {exp.tags.map((tag, tIdx) => (
+                  <span key={tIdx} className="sawad-tag">{tag}</span>
+                ))}
+              </div>
 
-                  {(exp.companyUrl || exp.demoUrl) && (
-                    <div className="exp-action-links">
-                      {exp.companyUrl && (
-                        <a href={exp.companyUrl} target="_blank" rel="noreferrer" className="exp-link">
-                          <FaExternalLinkAlt size={12} />
-                          <span>Website</span>
-                        </a>
-                      )}
-                      {exp.demoUrl && (
-                        <a href={exp.demoUrl} target="_blank" rel="noreferrer" className="exp-link primary-link">
-                          <FaPlay size={12} />
-                          <span>Demo Video</span>
-                        </a>
-                      )}
-                    </div>
+              {(exp.companyUrl || exp.demoUrl) && (
+                <div className="sawad-exp-actions">
+                  {exp.companyUrl && (
+                    <a href={exp.companyUrl} target="_blank" rel="noreferrer" className="sawad-exp-link">
+                      <FaExternalLinkAlt size={12} />
+                      <span>Company</span>
+                    </a>
+                  )}
+                  {exp.demoUrl && (
+                    <a href={exp.demoUrl} target="_blank" rel="noreferrer" className="sawad-exp-link highlight-link">
+                      <FaPlay size={12} />
+                      <span>Demo</span>
+                    </a>
                   )}
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              )}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

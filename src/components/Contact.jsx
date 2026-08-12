@@ -5,23 +5,23 @@ import './Contact.css';
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({ name: '', email: '', subject: 'Software Engineering Opportunity', message: '' });
 
-  const emailAddress = "praveeeening@gmail.com";
+  const email = "praveeeening@gmail.com";
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(emailAddress);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setSubmitted(true);
     setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setSubmitted(false);
+      setForm({ name: '', email: '', subject: 'Software Engineering Opportunity', message: '' });
     }, 4000);
   };
 
@@ -30,173 +30,143 @@ const Contact = () => {
   };
 
   return (
-    <footer id="contact" className="contact-section">
-      <motion.div
-        className="section-header"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <span className="section-badge">Get In Touch</span>
-        <h2 className="section-title">Let's Connect & Build</h2>
-      </motion.div>
+    <footer id="contact" className="sawad-contact-section">
+      <div className="sawad-section-tag">📫 LET'S WORK TOGETHER</div>
+      <h2 className="sawad-section-title">Let's Build Something Exceptional</h2>
 
-      <div className="contact-container">
-        <div className="contact-grid">
-          {/* Left Column: Direct Info & Quick Copy */}
-          <motion.div
-            className="contact-info-col"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="glass-card direct-email-card">
-              <span className="card-lbl">Prefer Direct Email?</span>
-              <div className="email-display">
-                <span className="email-text">{emailAddress}</span>
-                <button
-                  className="copy-btn"
-                  onClick={handleCopyEmail}
-                  title="Copy email to clipboard"
-                >
-                  {copied ? <FaCheck color="#10b981" /> : <FaCopy />}
-                  <span>{copied ? "Copied!" : "Copy"}</span>
-                </button>
-              </div>
+      <div className="sawad-contact-container">
+        {/* Left Direct Copy & Info */}
+        <div className="sawad-contact-info">
+          <div className="sawad-card sawad-copy-card">
+            <span className="copy-label">Direct Email</span>
+            <div className="copy-input-row">
+              <span className="copy-email-text">{email}</span>
+              <button className="sawad-copy-btn" onClick={handleCopy} title="Copy email address">
+                {copied ? <FaCheck color="#10b981" /> : <FaCopy />}
+                <span>{copied ? "Copied!" : "Copy"}</span>
+              </button>
             </div>
-
-            <div className="contact-details-list">
-              <a href={`mailto:${emailAddress}`} className="glass-card contact-detail-item">
-                <div className="contact-detail-icon"><FaEnvelope /></div>
-                <div>
-                  <span className="detail-label">Email Address</span>
-                  <span className="detail-val">{emailAddress}</span>
-                </div>
-              </a>
-
-              <a href="tel:+919391206849" className="glass-card contact-detail-item">
-                <div className="contact-detail-icon"><FaPhoneAlt /></div>
-                <div>
-                  <span className="detail-label">Phone</span>
-                  <span className="detail-val">+91 9391206849</span>
-                </div>
-              </a>
-
-              <a href="https://www.linkedin.com/in/nethavath-praveen-0a7a84287/" target="_blank" rel="noreferrer" className="glass-card contact-detail-item">
-                <div className="contact-detail-icon"><FaLinkedin /></div>
-                <div>
-                  <span className="detail-label">LinkedIn Profile</span>
-                  <span className="detail-val">nethavath-praveen-0a7a84287</span>
-                </div>
-              </a>
-
-              <a href="https://github.com/Praveen-ing" target="_blank" rel="noreferrer" className="glass-card contact-detail-item">
-                <div className="contact-detail-icon"><FaGithub /></div>
-                <div>
-                  <span className="detail-label">GitHub Repository</span>
-                  <span className="detail-val">github.com/Praveen-ing</span>
-                </div>
-              </a>
-
-              <div className="glass-card contact-detail-item">
-                <div className="contact-detail-icon"><FaMapMarkerAlt /></div>
-                <div>
-                  <span className="detail-label">Location</span>
-                  <span className="detail-val">IIIT Hyderabad, Gachibowli, Telangana, India</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column: Message Form */}
-          <motion.div
-            className="contact-form-col"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="glass-card form-card">
-              <h3 className="form-title">Send a Direct Message</h3>
-
-              {formSubmitted ? (
-                <div className="form-success-msg">
-                  <FaCheck className="success-icon" size={32} />
-                  <h4>Message Received!</h4>
-                  <p>Thank you for reaching out, Praveen will respond promptly.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="contact-form">
-                  <div className="form-group">
-                    <label htmlFor="name">Your Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      required
-                      placeholder="e.g. Alex Smith"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="email">Your Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      required
-                      placeholder="alex@company.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="subject">Subject</label>
-                    <input
-                      type="text"
-                      id="subject"
-                      required
-                      placeholder="Opportunity / Collaboration"
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="message">Message</label>
-                    <textarea
-                      id="message"
-                      rows="4"
-                      required
-                      placeholder="Hi Praveen, I'd like to discuss..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    ></textarea>
-                  </div>
-
-                  <button type="submit" className="btn btn-primary full-width">
-                    <FaPaperPlane size={14} />
-                    <span>Send Message</span>
-                  </button>
-                </form>
-              )}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Footer Bottom Bar */}
-        <div className="footer-bottom">
-          <div className="footer-copy">
-            <p>© {new Date().getFullYear()} Nethavath Praveen. Built with React & Framer Motion.</p>
           </div>
 
-          <button className="scroll-top-btn" onClick={scrollToTop} title="Back to Top">
-            <FaArrowUp size={14} />
-          </button>
+          <div className="sawad-info-list">
+            <a href={`mailto:${email}`} className="sawad-card info-item">
+              <div className="info-icon"><FaEnvelope /></div>
+              <div>
+                <span className="info-title">Email Direct</span>
+                <span className="info-value">{email}</span>
+              </div>
+            </a>
+
+            <a href="tel:+919391206849" className="sawad-card info-item">
+              <div className="info-icon"><FaPhoneAlt /></div>
+              <div>
+                <span className="info-title">Phone</span>
+                <span className="info-value">+91 9391206849</span>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/nethavath-praveen-0a7a84287/" target="_blank" rel="noreferrer" className="sawad-card info-item">
+              <div className="info-icon"><FaLinkedin /></div>
+              <div>
+                <span className="info-title">LinkedIn</span>
+                <span className="info-value">nethavath-praveen-0a7a84287</span>
+              </div>
+            </a>
+
+            <a href="https://github.com/Praveen-ing" target="_blank" rel="noreferrer" className="sawad-card info-item">
+              <div className="info-icon"><FaGithub /></div>
+              <div>
+                <span className="info-title">GitHub</span>
+                <span className="info-value">github.com/Praveen-ing</span>
+              </div>
+            </a>
+
+            <div className="sawad-card info-item">
+              <div className="info-icon"><FaMapMarkerAlt /></div>
+              <div>
+                <span className="info-title">Location</span>
+                <span className="info-value">IIIT Hyderabad, Telangana, India</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* Right Direct Message Form */}
+        <div className="sawad-card sawad-form-card">
+          <h3 className="sawad-form-heading">Send a Message</h3>
+
+          {submitted ? (
+            <div className="sawad-form-success">
+              <FaCheck size={36} color="#10b981" />
+              <h4>Message Delivered!</h4>
+              <p>Thank you for reaching out, Praveen will respond to you shortly.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="sawad-form">
+              <div className="sawad-field-group">
+                <label htmlFor="name">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  placeholder="e.g. Alex Smith"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
+              </div>
+
+              <div className="sawad-field-group">
+                <label htmlFor="email">Your Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  placeholder="alex@company.com"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                />
+              </div>
+
+              <div className="sawad-field-group">
+                <label htmlFor="subject">Inquiry Type</label>
+                <select
+                  id="subject"
+                  value={form.subject}
+                  onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                >
+                  <option value="Software Engineering Opportunity">Software Engineering Opportunity</option>
+                  <option value="Systems / Full-Stack Project">Systems / Full-Stack Project</option>
+                  <option value="General Discussion">General Discussion</option>
+                </select>
+              </div>
+
+              <div className="sawad-field-group">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  rows="4"
+                  required
+                  placeholder="Tell me about your project or opportunity..."
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                ></textarea>
+              </div>
+
+              <button type="submit" className="sawad-btn sawad-btn-primary full-btn">
+                <FaPaperPlane size={14} />
+                <span>Submit Inquiry</span>
+              </button>
+            </form>
+          )}
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="sawad-footer-bottom">
+        <span>© {new Date().getFullYear()} Nethavath Praveen. All rights reserved.</span>
+        <button className="sawad-scroll-btn" onClick={scrollToTop} title="Back to Top">
+          <FaArrowUp size={14} />
+        </button>
       </div>
     </footer>
   );
