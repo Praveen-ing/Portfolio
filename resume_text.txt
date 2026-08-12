@@ -1,0 +1,46 @@
+Nethavath Praveen
+B.Tech at IIIT Hyderabad (Expected 2027) — Aspiring Full Stack Software Engineer
+/envel⌢pepraveennayak045@gmail.com|/linkedinlinkedin.com/in/nethavath-praveen-0a7a84287|/githubGitHub|♂phone9391206849
+Education
+International Institute of Information T echnology , Hyderabad (IIITH)Aug 2023 – May 2027
+B.Tech in Electronics and Communication Engineering (ECE)
+Jawahar Navodaya Vidyalaya (JNV), W arangal & Puducherry
+Secondary and Senior Secondary Education
+Experience
+NVIRI Solutions — Order Management System (OMS)Jan 2025 – Apr 2025
+Software Intern (Remote) Company Demo
+–Improved data retrieval efficiency by15%by developing scalable backend microservices usingJava Spring Bootand
+designing aPostgreSQLdatabase with35+tables.
+–Increased merchant productivity by25%by building a cross-platform application inFlutterthat consumed internal
+RESTful APIsfor seamless order management.
+–Enhanced code maintainability by applyingClean Architectureprinciples, demonstrating strongattention to detail
+in defining service boundaries and interfaces.
+–Showcasedproblem-solvingandcommunicationskills by owning features end-to-end, leading to a10%faster feature
+delivery cycle through effective stakeholder collaboration.
+Projects
+FooDel — Full-Stack Food Delivery Platform with Payments/githubGitHub
+•Built a full-stack food delivery application using theMERN stack, processing over1,000+simulated transactions
+with99.9%accuracy via theStripe API.
+•Implemented robust authentication withJWT + bcrypt, cart management, and real-time order status tracking.
+•Designed RESTful APIs and an admin panel, improving data management efficiency by40%.
+CampusMart @ IIITH — Full-Stack Marketplace/githubGitHub/gl⌢beW ebsite
+•Architected a full-stackMERNmarketplace that acquired100+active users in its first month and facilitated over
+200+successful student-to-student transactions.
+•Implemented aRESTful APIwith15+ endpoints, secured withJWT authentication, for user, cart, and product
+management.
+•Developed a responsive React-based UI with category filtering and transaction history.
+CodeCrux — Competitive Programming Practice Portal/githubGitHub
+•Built a competitive programming platform with theMERN stack, secured using JWT-based authentication.
+•IntegratedClist.by APIto track global contests and addedGoogle Calendar synchronizationfor reminders.
+•Added personalized features like daily challenges and tag-based filtering, boosting user engagement by30%and daily
+active users by15%.
+Technical Skills
+LanguagesJavaScript (ES6+), Python, Java, C++, SQL, HTML, CSS
+DatabasesPostgreSQL, MySQL, MongoDB
+F rameworks/T oolsReact.js, Node.js, Express.js, Spring Boot, Flask, Flutter, Git/GitHub
+DeploymentHeroku, Render, Netlify, Vercel
+PracticesREST API Design, Payment Gateway Integration, JWT/OAuth Authentication, Clean Architecture
+Leadership Achievements
+JEE Mains AIR 2107 Elected NSS Co-ordinator, managing1500+volunteers.
+JEE Advanced AIR 3894 Felicity Fest Marketing Team Member.
+FFE Scholar NCC ‘A’ Certificate Holder.
