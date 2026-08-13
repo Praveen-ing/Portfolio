@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { FiTerminal, FiArrowRight, FiCheckCircle, FiCode } from 'react-icons/fi';
 import Terminal from './Terminal';
+import profileImg from '../assets/profile.jpg';
 import './Hero.css';
 
 const roles = [
@@ -142,7 +143,7 @@ export default function Hero() {
           <div className="profile-frame-wrapper">
             <div className="profile-frame">
               <img
-                src="./profile.jpg"
+                src={profileImg}
                 alt="Nethavath Praveen"
                 className="profile-img"
               />
