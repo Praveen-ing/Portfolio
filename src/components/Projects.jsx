@@ -1,175 +1,168 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaStar, FaTerminal, FaDatabase } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FiLayers, FiShield, FiTrendingUp, FiServer } from 'react-icons/fi';
 import './Projects.css';
 
-const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
+const projects = [
+  {
+    id: 'foodel',
+    title: 'FooDel — Full-Stack Food Delivery Platform',
+    category: 'Full-Stack',
+    metrics: '1,000+ Transactions · 99.9% Uptime',
+    desc: 'Full-stack food delivery application built using the MERN stack with Stripe API integration processing over 1,000+ simulated transactions with 99.9% accuracy. Features JWT + bcrypt authentication, cart management, real-time order status tracking, and admin dashboard (+40% data efficiency).',
+    stack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Stripe API', 'JWT', 'REST API'],
+    github: 'https://github.com/Praveen-ing/FooDel',
+    featured: true,
+    highlights: ['Stripe payment gateway integration', 'Real-time order tracking', '40% improved admin efficiency'],
+  },
+  {
+    id: 'campusmart',
+    title: 'CampusMart @ IIITH — Student Marketplace',
+    category: 'Full-Stack',
+    metrics: '100+ Active Users · 200+ Transactions',
+    desc: 'Architected a full-stack MERN marketplace for IIIT Hyderabad students that acquired 100+ active users in its first month and facilitated over 200+ student-to-student transactions. Built 15+ secured RESTful API endpoints for user, cart, and product management.',
+    stack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT Auth', 'RESTful API'],
+    github: 'https://github.com/Praveen-ing/CampusMart',
+    featured: true,
+    highlights: ['15+ Secure REST endpoints', 'Category filtering & seller history', 'Facilitated 200+ deals'],
+  },
+  {
+    id: 'codecrux',
+    title: 'CodeCrux — Competitive Programming Hub',
+    category: 'Full-Stack',
+    metrics: '+30% User Engagement · +15% DAU',
+    desc: 'Competitive programming practice portal built with the MERN stack. Integrated Clist.by API to track global contests across platforms and added Google Calendar synchronization for contest reminders. Added daily challenges and tag filtering.',
+    stack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Clist.by API', 'Google Calendar API'],
+    github: 'https://github.com/Praveen-ing/CodeCrux',
+    featured: true,
+    highlights: ['Google Calendar API sync', 'Global contest tracking', 'Personalized daily challenges'],
+  },
+  {
+    id: 'oms',
+    title: 'NVIRI Enterprise OMS Microservices',
+    category: 'Systems & Backend',
+    metrics: '+15% Data Efficiency · 35+ PostgreSQL Tables',
+    desc: 'Scalable backend microservices developed during software internship at NVIRI Solutions using Java Spring Boot. Designed PostgreSQL database with 35+ relational tables, improving data retrieval efficiency by 15%. Integrated with Flutter mobile app.',
+    stack: ['Java Spring Boot', 'PostgreSQL', 'Flutter', 'RESTful APIs', 'Clean Architecture'],
+    featured: true,
+    highlights: ['Clean Architecture design', '35+ relational DB tables', '+25% merchant productivity'],
+  },
+  {
+    id: 'c-shell',
+    title: 'Unix-like System Shell in C',
+    category: 'Systems & Backend',
+    metrics: 'Low-Level Kernel Execution',
+    desc: 'UNIX shell implementation written in C supporting process creation, piping, I/O redirection, signal handling, and job control background processing.',
+    stack: ['C', 'Linux', 'Systems Programming', 'POSIX'],
+    github: 'https://github.com/Praveen-ing/c-shell',
+    highlights: ['Piping & I/O Redirection', 'Signal handling & job control'],
+  },
+  {
+    id: 'social-db',
+    title: 'Social Media Relational Database',
+    category: 'Systems & Backend',
+    metrics: '20+ Normalized ER Tables',
+    desc: 'Relational database architecture for a social platform featuring 20+ normalized tables, stored procedures, indexing strategy, and multi-join analytical queries.',
+    stack: ['PostgreSQL', 'MySQL', 'SQL', 'ER Design'],
+    github: 'https://github.com/Praveen-ing/Social-Media-DB',
+    highlights: ['20+ Normalized tables', 'Complex indexing & views'],
+  },
+];
 
-  const projectList = [
-    {
-      title: "Distributed Network File System (NFS)",
-      category: "Systems & Cloud",
-      desc: "Multithreaded distributed file system built from scratch in C supporting concurrent client-server communication using TCP/IP sockets, LRU caching, Trie indexing (35% faster lookup), and fault-tolerant file replication.",
-      github: "https://github.com/Praveen-ing/NFS",
-      demo: null,
-      featured: true,
-      icon: <FaTerminal size={22} className="proj-type-icon" />,
-      tags: ["C", "TCP Sockets", "POSIX Threads", "LRU Cache", "Trie"]
-    },
-    {
-      title: "CF-Lens — Codeforces Visualizer",
-      category: "Full-Stack & Web",
-      desc: "Web platform analyzing and visualizing Codeforces competitive programming performance for 1,000+ users. Integrated Codeforces API with Python-Flask backend delivering 10+ real-time D3.js charts (<200ms latency).",
-      github: "https://github.com/Praveen-ing/CF-Lens",
-      demo: "https://praveen-ing.github.io/CF-Lens/",
-      featured: true,
-      icon: <FaCode size={22} className="proj-type-icon" />,
-      tags: ["React", "D3.js", "Python Flask", "Codeforces API"]
-    },
-    {
-      title: "Unix-like C Shell",
-      category: "Systems & Cloud",
-      desc: "Fully functional Unix shell built in C supporting command piping, background job execution, I/O redirection, system calls (fork, exec, wait), and signal management (SIGINT, SIGCHLD).",
-      github: "https://github.com/Praveen-ing/C-SHELL",
-      demo: null,
-      featured: false,
-      icon: <FaTerminal size={22} className="proj-type-icon" />,
-      tags: ["C", "Linux Systems", "POSIX API", "Signal Handling"]
-    },
-    {
-      title: "FooDel — Food Delivery Platform",
-      category: "Full-Stack & Web",
-      desc: "Full-stack MERN food delivery platform processing 1,000+ simulated transactions with 99.9% accuracy via Stripe API. JWT + bcrypt authentication, dynamic cart, and administrative panel.",
-      github: "https://github.com/Praveen-ing/FooDel-Project-Repo",
-      demo: null,
-      featured: true,
-      icon: <FaCode size={22} className="proj-type-icon" />,
-      tags: ["React", "Node.js", "Express", "MongoDB", "Stripe API"]
-    },
-    {
-      title: "CampusMart @ IIITH",
-      category: "Full-Stack & Web",
-      desc: "Student-to-student marketplace at IIIT Hyderabad acquiring 100+ active users & 200+ transactions. 15+ RESTful endpoints secured with JWT authentication.",
-      github: "https://github.com/Praveen-ing/CampusMart-IIITH",
-      demo: "https://campusmart-iiith-1.onrender.com/",
-      featured: false,
-      icon: <FaCode size={22} className="proj-type-icon" />,
-      tags: ["React", "Express", "MongoDB", "JWT Auth"]
-    },
-    {
-      title: "CAPTCHA Breaker (CNN-LSTM)",
-      category: "AI & ML",
-      desc: "Deep learning CAPTCHA solver combining CNN-LSTM neural architecture with CTC loss and OpenCV text preprocessing, plus automated synthetic CAPTCHA data generator.",
-      github: "https://github.com/Praveen-ing/CrackTheCAPTCHA",
-      demo: null,
-      featured: false,
-      icon: <FaDatabase size={22} className="proj-type-icon" />,
-      tags: ["Python", "PyTorch", "OpenCV", "CNN-LSTM"]
-    },
-    {
-      title: "CodeCrux — CP Portal",
-      category: "Full-Stack & Web",
-      desc: "Competitive programming portal tracking global contests via Clist.by API with Google Calendar sync, tag-based filtering, and contest reminders boosting daily active users.",
-      github: "https://github.com/Praveen-ing/CodeCrux",
-      demo: "https://codecrux-4tw1.onrender.com/",
-      featured: false,
-      icon: <FaCode size={22} className="proj-type-icon" />,
-      tags: ["MongoDB", "Express", "React", "Clist API"]
-    },
-    {
-      title: "Social Media DB Engine",
-      category: "Systems & Cloud",
-      desc: "Normalized relational database schema and engine for social media platforms managing hierarchical comments and follower networks with PyMySQL transaction management.",
-      github: "https://github.com/Praveen-ing/Social-Media",
-      demo: null,
-      featured: false,
-      icon: <FaDatabase size={22} className="proj-type-icon" />,
-      tags: ["Python", "MySQL", "PyMySQL", "Schema Design"]
-    }
-  ];
+const filterCategories = ['All', 'Full-Stack', 'Systems & Backend'];
 
-  const categories = ["All", "Systems & Cloud", "Full-Stack & Web", "AI & ML"];
+export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState('All');
 
-  const filteredProjects = activeCategory === "All"
-    ? projectList
-    : projectList.filter(p => p.category === activeCategory);
+  const filteredProjects = activeFilter === 'All'
+    ? projects
+    : projects.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="projects" className="sawad-projects-section">
-      <div className="sawad-section-tag">⚡ RECENT PROJECTS</div>
-      <h2 className="sawad-section-title">Featured Work & Built Systems</h2>
+    <section id="projects" className="projects-section tech-dot-bg">
+      <div className="container">
+        <div className="section-header">
+          <span className="section-label">03 // Featured Projects & Platforms</span>
+          <h2 className="section-title">
+            Engineered for <span className="highlight">Scale</span> & Performance
+          </h2>
+          <p className="section-desc">
+            Production full-stack applications, payment gateways, microservice architectures, and systems programming.
+          </p>
 
-      {/* Filter Tabs */}
-      <div className="sawad-filter-bar">
-        {categories.map((cat, idx) => (
-          <button
-            key={idx}
-            className={`sawad-filter-btn ${activeCategory === cat ? 'active' : ''}`}
-            onClick={() => setActiveCategory(cat)}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+          <div className="proj-filter-bar">
+            {filterCategories.map((cat) => (
+              <button
+                key={cat}
+                className={`proj-filter-btn ${activeFilter === cat ? 'active' : ''}`}
+                onClick={() => setActiveFilter(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
 
-      {/* Projects Grid */}
-      <motion.div layout className="sawad-projects-grid">
-        <AnimatePresence>
-          {filteredProjects.map((project) => (
-            <motion.div
-              key={project.title}
-              layout
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.4 }}
-              className="sawad-card sawad-project-card"
-            >
-              {/* Cover Icon Box */}
-              <div className="sawad-project-cover">
-                <div className="cover-icon-circle">
-                  {project.icon}
-                </div>
-                {project.featured && (
-                  <span className="star-badge">
-                    <FaStar size={10} /> Featured
-                  </span>
-                )}
-              </div>
-
-              {/* Content */}
-              <div className="sawad-project-body">
-                <div className="proj-title-row">
-                  <h3 className="sawad-project-title">{project.title}</h3>
-                  <div className="proj-links">
-                    {project.github && (
-                      <a href={project.github} target="_blank" rel="noreferrer" title="GitHub Code" className="proj-link-btn">
+        <motion.div className="projects-grid" layout>
+          <AnimatePresence>
+            {filteredProjects.map((p) => (
+              <motion.div
+                key={p.id}
+                className={`project-card tech-card ${p.featured ? 'project-card--featured' : ''}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="project-card-header">
+                  <div className="project-category-badge">{p.category}</div>
+                  <div className="project-actions">
+                    {p.github && (
+                      <a
+                        href={p.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="project-icon-link"
+                        title="View Source on GitHub"
+                      >
                         <FaGithub size={18} />
-                      </a>
-                    )}
-                    {project.demo && (
-                      <a href={project.demo} target="_blank" rel="noreferrer" title="Live Demo" className="proj-link-btn">
-                        <FaExternalLinkAlt size={16} />
                       </a>
                     )}
                   </div>
                 </div>
 
-                <p className="sawad-project-desc">{project.desc}</p>
+                <h3 className="project-title">{p.title}</h3>
+                
+                {p.metrics && (
+                  <div className="project-metrics-pill">
+                    <FiTrendingUp className="metrics-icon" />
+                    <span>{p.metrics}</span>
+                  </div>
+                )}
 
-                <div className="sawad-project-tags">
-                  {project.tags.map((tag, tIdx) => (
-                    <span key={tIdx} className="sawad-tag">{tag}</span>
+                <p className="project-desc">{p.desc}</p>
+
+                <div className="project-highlights">
+                  {p.highlights.map((h, i) => (
+                    <div key={i} className="highlight-item">
+                      <span className="highlight-bullet">•</span> {h}
+                    </div>
                   ))}
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </motion.div>
+
+                <div className="project-stack">
+                  {p.stack.map((t) => (
+                    <span key={t} className="tech-tag">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
     </section>
   );
-};
-
-export default Projects;
+}

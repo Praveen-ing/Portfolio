@@ -1,31 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 :root {
-  --bg-dark: #09090b;
-  --bg-card: #121215;
-  --bg-card-hover: #18181c;
-  --bg-sidebar: #121215;
+  /* Light Futuristic Tech Palette */
+  --bg: #ffffff;
+  --bg-subtle: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: #ffffff;
   
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(249, 115, 22, 0.4);
-  
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  
-  --accent-orange: #f97316;
-  --accent-orange-hover: #ea580c;
-  --accent-glow: rgba(249, 115, 22, 0.15);
+  --border: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.16);
+  --border-accent: rgba(79, 70, 229, 0.35);
 
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 24px;
-  --radius-full: 9999px;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
 
-  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 10px 30px rgba(249, 115, 22, 0.25);
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --indigo: #4f46e5;
+  --indigo-light: #6366f1;
+  --indigo-soft: rgba(79, 70, 229, 0.08);
+  
+  --cyan: #0284c7;
+  --cyan-soft: rgba(2, 132, 199, 0.08);
+  
+  --emerald: #059669;
+  --emerald-soft: rgba(5, 150, 105, 0.1);
+
+  --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%);
+  --gradient-accent: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+  --gradient-text: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  --gradient-brand: linear-gradient(135deg, #4f46e5 0%, #2563eb 50%, #0d9488 100%);
+
+  --font-head: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-title: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 10px 30px -10px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 20px 45px -15px rgba(15, 23, 42, 0.12);
+  --shadow-glow: 0 12px 35px rgba(79, 70, 229, 0.18);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -33,12 +52,12 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--bg-dark);
+  font-family: var(--font-head);
+  background-color: var(--bg);
   color: var(--text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -46,142 +65,204 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Outfit', sans-serif;
-  letter-spacing: -0.02em;
+/* ── Technical Background Grid Pattern ── */
+.tech-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
-code, pre {
-  font-family: 'Fira Code', monospace;
+.tech-dot-bg {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-/* Custom Scrollbar */
+/* ── Custom Scrollbar ── */
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-dark);
+  background: var(--bg-subtle);
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
-  border-radius: var(--radius-full);
+  background: rgba(15, 23, 42, 0.2);
+  border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-orange);
+  background: var(--indigo);
 }
 
-/* Layout Container (Sawad 2-Column Split) */
-.sawad-app-layout {
-  max-width: 1320px;
+/* ── Selection ── */
+::selection {
+  background: var(--indigo);
+  color: #ffffff;
+}
+
+/* ── Shared UI Utilities ── */
+.container {
+  width: 100%;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 2.5rem;
-  position: relative;
+  padding: 0 1.5rem;
 }
 
-/* Sawad Section Header Badge */
-.sawad-section-tag {
+.section-label {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.9rem;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  font-size: 0.78rem;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
   font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 0.35rem 0.9rem;
+  border-radius: 99px;
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  margin-bottom: 1.25rem;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--indigo);
+  box-shadow: 0 0 8px var(--indigo);
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   margin-bottom: 1rem;
 }
 
-.sawad-section-title {
-  font-size: 2.25rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  line-height: 1.25;
-  margin-bottom: 2rem;
-  letter-spacing: -0.03em;
+.section-title .highlight {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Card Component Utility */
-.sawad-card {
+.section-desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 3.5rem;
+}
+
+/* ── Modern Card ── */
+.tech-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  transition: var(--transition-smooth);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s var(--ease);
   position: relative;
   overflow: hidden;
 }
 
-.sawad-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-glow);
+.tech-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
-/* Button Components */
-.sawad-btn {
+/* ── Badges & Tags ── */
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  transition: all 0.2s var(--ease);
+}
+
+.tech-tag:hover {
+  border-color: var(--indigo-light);
+  color: var(--indigo);
+  background: var(--indigo-soft);
+}
+
+/* ── Buttons ── */
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
   padding: 0.85rem 1.75rem;
-  border-radius: var(--radius-full);
+  border-radius: 12px;
   font-size: 0.92rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: var(--transition-smooth);
   border: none;
+  transition: all 0.25s var(--ease);
+  font-family: var(--font-head);
 }
 
-.sawad-btn-primary {
-  background: var(--accent-orange);
+.btn-primary {
+  background: var(--text-primary);
   color: #ffffff;
-  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.18);
 }
 
-.sawad-btn-primary:hover {
-  background: var(--accent-orange-hover);
-  box-shadow: 0 6px 25px rgba(249, 115, 22, 0.5);
+.btn-primary:hover {
+  background: var(--indigo);
+  box-shadow: var(--shadow-glow);
   transform: translateY(-2px);
 }
 
-.sawad-btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
+.btn-secondary {
+  background: var(--indigo-soft);
+  color: var(--indigo);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+}
+
+.btn-secondary:hover {
+  background: var(--indigo);
+  color: #ffffff;
+  border-color: var(--indigo);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
   color: var(--text-primary);
+  border: 1px solid var(--border-strong);
 }
 
-.sawad-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+.btn-outline:hover {
+  background: var(--bg-subtle);
+  border-color: var(--text-primary);
   transform: translateY(-2px);
 }
 
-/* Tag Badge */
-.sawad-tag {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  font-weight: 500;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-subtle);
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin: 0;
 }
 
-/* Responsive Media Queries */
-@media (max-width: 1024px) {
-  .sawad-app-layout {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding-top: 1.5rem;
-  }
+/* Glass panel */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
 }
+

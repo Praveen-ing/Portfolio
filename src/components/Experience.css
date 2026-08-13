@@ -1,145 +1,129 @@
-.sawad-experience-section {
-  padding-bottom: 4rem;
+.experience-section {
+  padding: 6rem 0;
+  background-color: var(--bg);
 }
 
-.sawad-experience-list {
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.experience-card {
+  padding: 2.25rem;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
 }
 
-.sawad-exp-card {
-  padding: 2rem;
-}
-
-.sawad-exp-header {
+.exp-header {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
 }
 
-.type-tag {
-  background: rgba(249, 115, 22, 0.15);
-  border-color: rgba(249, 115, 22, 0.3);
-  color: var(--accent-orange);
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-}
-
-.sawad-exp-role {
-  font-size: 1.35rem;
+.exp-role {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--text-primary);
+  line-height: 1.2;
 }
 
-.sawad-exp-company {
-  font-size: 1.05rem;
+.exp-company {
+  font-size: 1.1rem;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--indigo);
+  margin-top: 0.35rem;
 }
 
-.sawad-exp-meta {
+.exp-meta {
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  align-items: flex-end;
+  align-items: center;
+  gap: 0.85rem;
 }
 
-.meta-pill {
+.exp-period {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
   color: var(--text-muted);
 }
 
-.sawad-exp-bullets {
-  list-style: none;
+.exp-type {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--emerald);
+  background: var(--emerald-soft);
+  padding: 0.25rem 0.65rem;
+  border-radius: 99px;
+}
+
+/* Highlights Grid */
+.exp-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.exp-highlight-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.15rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  gap: 0.6rem;
 }
 
-.sawad-exp-bullets li {
-  position: relative;
-  padding-left: 1.25rem;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
-
-.sawad-exp-bullets li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--accent-orange);
+.stat-pill {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
   font-weight: 700;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  width: fit-content;
 }
 
-.sawad-exp-footer {
+.highlight-text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.exp-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
   flex-wrap: wrap;
-  gap: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-subtle);
 }
 
-.sawad-exp-tags {
+.exp-stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
-}
-
-.sawad-exp-actions {
-  display: flex;
-  gap: 0.65rem;
-}
-
-.sawad-exp-link {
-  display: inline-flex;
-  align-items: center;
   gap: 0.4rem;
-  padding: 0.4rem 0.85rem;
-  border-radius: var(--radius-full);
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-subtle);
-  transition: var(--transition-smooth);
 }
 
-.sawad-exp-link:hover {
-  color: var(--text-primary);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.sawad-exp-link.highlight-link {
-  background: rgba(249, 115, 22, 0.15);
-  color: var(--accent-orange);
-  border-color: rgba(249, 115, 22, 0.3);
-}
-
-.sawad-exp-link.highlight-link:hover {
-  background: var(--accent-orange);
-  color: #ffffff;
+.exp-demo-btn {
+  padding: 0.55rem 1.15rem;
+  font-size: 0.82rem;
+  border-radius: 10px;
 }
 
 @media (max-width: 768px) {
-  .sawad-exp-meta {
-    align-items: flex-start;
-  }
-  .sawad-exp-footer {
-    flex-direction: column;
-    align-items: flex-start;
+  .exp-highlights-grid {
+    grid-template-columns: 1fr;
   }
 }

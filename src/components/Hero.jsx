@@ -1,73 +1,207 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaArrowRight, FaTerminal, FaGraduationCap } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FiTerminal, FiArrowRight, FiCheckCircle, FiCode } from 'react-icons/fi';
+import Terminal from './Terminal';
 import './Hero.css';
 
-const Hero = () => {
-  const stats = [
-    { number: "+2", label: "YEARS EXP & INTERNSHIPS" },
-    { number: "+10", label: "PROJECTS COMPLETED" },
-    { number: "Top 50", label: "GOOGLE BIGCODE '26" },
-    { number: "3137", label: "JEE MAINS AIR" }
-  ];
+const roles = [
+  'Full-Stack Software Engineer',
+  'Backend & Microservices Specialist',
+  'Software Intern @ NVIRI Solutions',
+  'B.Tech Undergrad @ IIIT Hyderabad',
+];
+
+export default function Hero() {
+  const [roleIdx, setRoleIdx] = useState(0);
+  const [text, setText] = useState('');
+  const [deleting, setDeleting] = useState(false);
+  const [termOpen, setTermOpen] = useState(false);
+
+  useEffect(() => {
+    const current = roles[roleIdx];
+    const speed = deleting ? 35 : 70;
+
+    const t = setTimeout(() => {
+      if (!deleting) {
+        setText(current.slice(0, text.length + 1));
+        if (text.length + 1 === current.length) setTimeout(() => setDeleting(true), 1800);
+      } else {
+        setText(current.slice(0, text.length - 1));
+        if (text.length === 0) {
+          setDeleting(false);
+          setRoleIdx((i) => (i + 1) % roles.length);
+        }
+      }
+    }, speed);
+
+    return () => clearTimeout(t);
+  }, [text, deleting, roleIdx]);
+
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.1 } },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+  };
 
   return (
-    <section id="home" className="sawad-hero-section">
-      <motion.div
-        className="hero-header-content"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-      >
-        {/* Sawad Massive Stacked Headline */}
-        <div className="giant-title-box">
-          <h1 className="giant-title-line1">SOFTWARE &</h1>
-          <h1 className="giant-title-line2">SYSTEMS ENGINEER</h1>
-        </div>
+    <section id="hero" className="hero tech-grid-bg">
+      {/* Background ambient lighting */}
+      <div className="hero__glow hero__glow--1" />
+      <div className="hero__glow hero__glow--2" />
 
-        <p className="hero-description">
-          Undergraduate student at <strong>IIIT Hyderabad</strong> specializing in high-performance Rust/C systems, 
-          Azure AKS remediation CLI tools, microservice architectures with Java Spring Boot & PostgreSQL, 
-          and scalable MERN web applications.
-        </p>
+      <div className="container hero__inner">
+        <motion.div
+          className="hero__content"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Status Pill */}
+          <motion.div variants={childVariants} className="hero__pill">
+            <span className="hero__pulse" />
+            <span className="pill-text">Open to Engineering Roles & Internships</span>
+          </motion.div>
 
-        {/* Sawad Large Number Stat Counters */}
-        <div className="stats-grid">
-          {stats.map((stat, idx) => (
+          {/* Main Title */}
+          <motion.h1 variants={childVariants} className="hero__title">
+            Crafting Scalable <span className="highlight">Full-Stack Platforms</span> & Systems.
+          </motion.h1>
+
+          {/* Typing Ticker */}
+          <motion.div variants={childVariants} className="hero__role-box">
+            <span className="role-prefix">I am a </span>
+            <span className="role-text">{text}<span className="cursor">|</span></span>
+          </motion.div>
+
+          {/* Bio */}
+          <motion.p variants={childVariants} className="hero__bio">
+            Undergraduate at <strong>IIIT Hyderabad (ECE '27)</strong> specializing in full-stack architecture, 
+            Spring Boot microservices, high-volume database engineering (35+ schema tables), and production web apps. 
+            Focused on robust REST API design, real-time transaction processing, and modular Clean Architecture.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div variants={childVariants} className="hero__actions">
+            <a href="#projects" className="btn btn-primary">
+              View Featured Work <FiArrowRight />
+            </a>
+            <button className="btn btn-secondary" onClick={() => setTermOpen(true)}>
+              <FiTerminal /> Launch CLI Console
+            </button>
+          </motion.div>
+
+          {/* Metrics Grid */}
+          <motion.div variants={childVariants} className="hero__metrics">
+            <div className="metric-card">
+              <span className="metric-num">AIR 2107</span>
+              <span className="metric-label">JEE Mains Rank</span>
+            </div>
+            <div className="metric-card">
+              <span className="metric-num">1,000+</span>
+              <span className="metric-label">Stripe Transactions</span>
+            </div>
+            <div className="metric-card">
+              <span className="metric-num">35+</span>
+              <span className="metric-label">PostgreSQL Tables</span>
+            </div>
+            <div className="metric-card">
+              <span className="metric-num">1,500+</span>
+              <span className="metric-label">NSS Volunteers Led</span>
+            </div>
+          </motion.div>
+
+          {/* Socials Bar */}
+          <motion.div variants={childVariants} className="hero__socials">
+            <a href="https://github.com/Praveen-ing" target="_blank" rel="noreferrer" className="social-pill">
+              <FaGithub /> GitHub
+            </a>
+            <a href="https://linkedin.com/in/nethavath-praveen-0a7a84287" target="_blank" rel="noreferrer" className="social-pill">
+              <FaLinkedin /> LinkedIn
+            </a>
+            <a href="mailto:praveennayak045@gmail.com" className="social-pill">
+              <FaEnvelope /> praveennayak045@gmail.com
+            </a>
+            <a href="tel:9391206849" className="social-pill">
+              <FaPhone /> +91 9391206849
+            </a>
+          </motion.div>
+        </motion.div>
+
+        {/* Right Side: Profile Picture Card & Holographic Ring */}
+        <motion.div
+          className="hero__visual"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="profile-frame-wrapper">
+            <div className="profile-frame">
+              <img
+                src="./profile.jpg"
+                alt="Nethavath Praveen"
+                className="profile-img"
+              />
+              <div className="profile-overlay-gradient" />
+            </div>
+
+            {/* Orbiting Tech Floating Badges */}
             <motion.div
-              key={idx}
-              className="stat-box"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="orbit-badge orbit-badge--1"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
             >
-              <span className="stat-number">{stat.number}</span>
-              <span className="stat-label">{stat.label}</span>
+              <FiCheckCircle className="badge-icon" />
+              <div>
+                <span className="badge-title">IIIT Hyderabad</span>
+                <span className="badge-sub">B.Tech 2023–2027</span>
+              </div>
             </motion.div>
-          ))}
-        </div>
 
-        {/* Quick Highlights Row */}
-        <div className="sawad-hero-highlights">
-          <div className="sawad-card highlight-pill-card">
-            <FaGraduationCap size={20} className="pill-icon" />
-            <div>
-              <h4 className="pill-title">B.Tech ECE @ IIIT Hyderabad</h4>
-              <p className="pill-sub">TA for Probability & Real Analysis (2025)</p>
-            </div>
+            <motion.div
+              className="orbit-badge orbit-badge--2"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut', delay: 1 }}
+            >
+              <FiCode className="badge-icon badge-icon--alt" />
+              <div>
+                <span className="badge-title">NVIRI Solutions</span>
+                <span className="badge-sub">Software Intern</span>
+              </div>
+            </motion.div>
           </div>
 
-          <div className="sawad-card highlight-pill-card">
-            <FaTerminal size={20} className="pill-icon" />
-            <div>
-              <h4 className="pill-title">Microland Platforms Intern</h4>
-              <p className="pill-sub">Rust AKS CLI, Graph RAG with Gemini 2.0 & Neo4j</p>
+          {/* Quick Code Preview Drawer */}
+          <div className="code-snippet-box">
+            <div className="snippet-header">
+              <span className="snippet-dot dot-r" />
+              <span className="snippet-dot dot-y" />
+              <span className="snippet-dot dot-g" />
+              <span className="snippet-file">DeveloperProfile.java</span>
             </div>
+            <pre className="snippet-code"><code>{`@RestController
+@RequestMapping("/api/v1/praveen")
+public class EngineeringProfile {
+
+    @GetMapping("/skills")
+    public StackOverview getStack() {
+        return StackOverview.builder()
+            .primary("Spring Boot", "React.js", "Java", "Python")
+            .database("PostgreSQL", "MongoDB", "MySQL")
+            .architecture("Clean Microservices", "RESTful APIs")
+            .achievement("JEE Mains AIR 2107")
+            .build();
+    }
+}`}</code></pre>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
+
+      <Terminal isOpen={termOpen} onClose={() => setTermOpen(false)} />
     </section>
   );
-};
-
-export default Hero;
+}

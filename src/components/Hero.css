@@ -1,115 +1,366 @@
-.sawad-hero-section {
-  padding-bottom: 3.5rem;
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 8.5rem;
+  padding-bottom: 5rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--bg);
 }
 
-.giant-title-box {
+.hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__glow--1 {
+  top: 10%;
+  right: 15%;
+  width: 450px;
+  height: 450px;
+  background: rgba(79, 70, 229, 0.07);
+}
+
+.hero__glow--2 {
+  bottom: 10%;
+  left: 10%;
+  width: 400px;
+  height: 400px;
+  background: rgba(2, 132, 199, 0.06);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Status Pill */
+.hero__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 99px;
+  background: var(--emerald-soft);
+  border: 1px solid rgba(5, 150, 105, 0.2);
+  color: var(--emerald);
+  font-size: 0.82rem;
+  font-weight: 600;
   margin-bottom: 1.5rem;
 }
 
-.giant-title-line1 {
-  font-size: 4rem;
-  font-weight: 900;
-  color: var(--text-primary);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
+.hero__pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--emerald);
+  box-shadow: 0 0 10px var(--emerald);
+  animation: pulse-ring 2s infinite;
 }
 
-.giant-title-line2 {
-  font-size: 4rem;
-  font-weight: 900;
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(5, 150, 105, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
+}
+
+.pill-text {
+  font-family: var(--font-mono);
+}
+
+/* Title & Ticker */
+.hero__title {
+  font-family: var(--font-title);
+  font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.hero__role-box {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 0.45rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.role-prefix {
   color: var(--text-muted);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  opacity: 0.5;
 }
 
-.hero-description {
-  font-size: 1.05rem;
+.cursor {
+  animation: blink 1s infinite;
+  color: var(--indigo);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Bio */
+.hero__bio {
+  font-size: 1.1rem;
   color: var(--text-secondary);
-  line-height: 1.75;
-  max-width: 720px;
-  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 2rem;
 }
 
-.hero-description strong {
+.hero__bio strong {
   color: var(--text-primary);
+  font-weight: 600;
 }
 
-/* Stats Grid */
-.stats-grid {
+/* Actions */
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+/* Metrics Grid */
+.hero__metrics {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 2.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
 }
 
-.stat-box {
+.metric-card {
   display: flex;
   flex-direction: column;
 }
 
-.stat-number {
-  font-family: 'Outfit', sans-serif;
-  font-size: 2.75rem;
-  font-weight: 900;
+.metric-num {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  font-weight: 700;
   color: var(--text-primary);
-  line-height: 1;
-  margin-bottom: 0.35rem;
+  letter-spacing: -0.02em;
 }
 
-.stat-label {
-  font-size: 0.72rem;
+.metric-label {
+  font-size: 0.75rem;
   color: var(--text-muted);
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-weight: 500;
 }
 
-/* Sawad Hero Highlights */
-.sawad-hero-highlights {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-}
-
-.highlight-pill-card {
-  padding: 1.25rem 1.5rem;
+/* Socials Bar */
+.hero__socials {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.6rem;
+  flex-wrap: wrap;
 }
 
-.pill-icon {
-  color: var(--accent-orange);
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s var(--ease);
+}
+
+.social-pill:hover {
+  background: var(--indigo-soft);
+  color: var(--indigo);
+  border-color: var(--indigo-light);
+}
+
+/* Visual Right Column (Photo & Frame) */
+.hero__visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  position: relative;
+}
+
+.profile-frame-wrapper {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+
+.profile-frame {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 2px solid var(--border-strong);
+  box-shadow: var(--shadow-lg), 0 0 35px rgba(79, 70, 229, 0.12);
+  position: relative;
+  background: #f1f5f9;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s var(--ease);
+}
+
+.profile-frame:hover .profile-img {
+  transform: scale(1.04);
+}
+
+.profile-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.25) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Orbit Badges */
+.orbit-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.95rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+}
+
+.orbit-badge--1 {
+  top: -15px;
+  right: -25px;
+}
+
+.orbit-badge--2 {
+  bottom: 20px;
+  left: -35px;
+}
+
+.badge-icon {
+  color: var(--emerald);
+  font-size: 1.2rem;
   flex-shrink: 0;
 }
 
-.pill-title {
-  font-size: 1.05rem;
+.badge-icon--alt {
+  color: var(--indigo);
+}
+
+.badge-title {
+  display: block;
+  font-family: var(--font-title);
   font-weight: 700;
+  font-size: 0.82rem;
   color: var(--text-primary);
+  line-height: 1.2;
 }
 
-.pill-sub {
-  font-size: 0.83rem;
-  color: var(--text-secondary);
+.badge-sub {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
 }
 
-@media (max-width: 1024px) {
-  .giant-title-line1, .giant-title-line2 {
-    font-size: 3rem;
+/* Code Snippet Box */
+.code-snippet-box {
+  width: 100%;
+  max-width: 420px;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.snippet-header {
+  background: #1e293b;
+  padding: 0.5rem 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.snippet-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.dot-r { background: #ef4444; }
+.dot-y { background: #f59e0b; }
+.dot-g { background: #10b981; }
+
+.snippet-file {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+
+.snippet-code {
+  padding: 0.85rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+@media (max-width: 992px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  .stats-grid {
+  .hero__visual {
+    order: -1;
+  }
+  .hero__metrics {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 640px) {
-  .giant-title-line1, .giant-title-line2 {
-    font-size: 2.25rem;
+@media (max-width: 576px) {
+  .profile-frame-wrapper {
+    width: 260px;
+    height: 260px;
   }
-  .sawad-hero-highlights {
-    grid-template-columns: 1fr;
+  .orbit-badge--1 { right: -10px; }
+  .orbit-badge--2 { left: -10px; }
+  .hero__metrics {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
