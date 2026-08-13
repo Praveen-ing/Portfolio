@@ -8,8 +8,8 @@ import './Hero.css';
 
 const roles = [
   'Full-Stack Software Engineer',
-  'Backend & Microservices Specialist',
-  'Software Intern @ NVIRI Solutions',
+  'Systems Programmer (Rust & C)',
+  'Platforms Intern @ Microland',
   'B.Tech Undergrad @ IIIT Hyderabad',
 ];
 
@@ -170,8 +170,8 @@ export default function Hero() {
             >
               <FiCode className="badge-icon badge-icon--alt" />
               <div>
-                <span className="badge-title">NVIRI Solutions</span>
-                <span className="badge-sub">Software Intern</span>
+                <span className="badge-title">Microland</span>
+                <span className="badge-sub">Platforms Intern</span>
               </div>
             </motion.div>
           </div>

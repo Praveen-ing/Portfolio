@@ -64,7 +64,7 @@ export default function About() {
                 I'm <strong>Nethavath Praveen</strong>, a B.Tech undergraduate at <strong>IIIT Hyderabad (IIITH)</strong> with a passion for building robust full-stack software and high-performance backend systems.
               </p>
               <p>
-                During my software engineering internship at <strong>NVIRI Solutions</strong>, I engineered backend microservices in <strong>Java Spring Boot</strong> with a 35+ table PostgreSQL schema, boosting data retrieval efficiency by 15%, and built a cross-platform <strong>Flutter</strong> mobile client that boosted merchant productivity by 25%.
+                Currently interning on the Platforms team at <strong>Microland</strong>, where I build autonomous <strong>Rust CLI tools</strong> operating on live Azure Kubernetes clusters and architect <strong>Graph RAG platforms</strong> with Google Gemini 2.0 Flash and Neo4j topology graphs for enterprise root-cause inference.
               </p>
               <p>
                 Whether architecting full-stack marketplace applications like <strong>CampusMart @ IIITH</strong> or real-time payment platforms like <strong>FooDel</strong> processing 1,000+ transactions via Stripe, I prioritize modularity, performance, and clean maintainable code.

@@ -1,35 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaCalendarAlt, FaExternalLinkAlt, FaPlay } from 'react-icons/fa';
-import { FiCheckCircle, FiArrowUpRight } from 'react-icons/fi';
+import { FaCalendarAlt } from 'react-icons/fa';
 import './Experience.css';
 
 const experiences = [
   {
-    company: 'NVIRI Solutions',
-    role: 'Software Intern (Order Management System)',
-    period: 'Jan 2025 – Apr 2025',
-    type: 'Remote',
+    company: 'Microland',
+    role: 'Tech Intern — Platforms Team',
+    period: 'May 2026 – Present',
+    type: 'Bangalore, India',
+    current: true,
     highlights: [
       {
-        text: 'Improved data retrieval efficiency by 15% by developing scalable backend microservices using Java Spring Boot and designing a PostgreSQL database with 35+ tables.',
-        stat: '+15% Retrieval Speed',
+        text: 'Designed and built from scratch an LLM-powered IT Service Engineer CLI in Rust to autonomously diagnose and remediate Azure Kubernetes (AKS) infrastructure issues with a 3-layer execution permission system.',
+        stat: 'Rust & Azure AKS',
       },
       {
-        text: 'Increased merchant productivity by 25% by building a cross-platform application in Flutter that consumed internal RESTful APIs for seamless order management.',
-        stat: '+25% Merchant Productivity',
+        text: 'Architected an Enterprise Graph RAG platform tracing alert propagation across 60+ microservices using Google Gemini 2.0 Flash and a Neo4j topology graph for root-cause analysis.',
+        stat: 'Graph RAG & Neo4j',
       },
       {
-        text: 'Enhanced code maintainability by applying Clean Architecture principles, defining clear service boundaries and interfaces.',
-        stat: 'Clean Architecture',
+        text: 'Re-engineered enterprise alert routing from legacy CRON to an Observe observability webhook, implementing inter-instance relation logic to prevent ticket flooding and enable real-time telemetry.',
+        stat: 'Observe Webhooks',
       },
       {
-        text: 'Owned end-to-end features through stakeholder collaboration, leading to a 10% faster feature delivery cycle.',
-        stat: '+10% Faster Delivery',
+        text: 'Built multi-tenant SSH multiplexing and context-aware remediation engine running autonomously on live Azure Kubernetes clusters.',
+        stat: 'Cloud Native Systems',
       },
     ],
-    stack: ['Java Spring Boot', 'PostgreSQL (35+ Tables)', 'Flutter', 'RESTful APIs', 'Clean Architecture'],
-    demoUrl: 'https://iiithydstudents-my.sharepoint.com/:v:/g/personal/nethavath_praveen_students_iiit_ac_in/Ech3gzr5eS9PmzxFALb9vncBz1bBL0ranmY5ymC82yUYgw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=7I5yjl',
+    stack: ['Rust', 'Azure AKS', 'Neo4j', 'Gemini 2.0 Flash', 'Kubernetes', 'SSH Multiplexing', 'Observe'],
   },
 ];
 
@@ -43,7 +42,7 @@ export default function Experience() {
             Industry <span className="highlight">Impact</span> & Internship
           </h2>
           <p className="section-desc">
-            Measurable software engineering deliverables in production backend microservices and mobile apps.
+            Production cloud-native systems engineering, autonomous infrastructure CLI tools, and Graph RAG platforms.
           </p>
         </div>
 
@@ -87,17 +86,6 @@ export default function Experience() {
                     </span>
                   ))}
                 </div>
-
-                {exp.demoUrl && (
-                  <a
-                    href={exp.demoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-secondary exp-demo-btn"
-                  >
-                    <FaPlay style={{ fontSize: '0.8rem' }} /> Company Demo Video <FiArrowUpRight />
-                  </a>
-                )}
               </div>
             </motion.div>
           ))}

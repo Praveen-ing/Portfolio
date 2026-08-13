@@ -37,16 +37,16 @@ DevOps/Tools:Git, GitHub, Heroku, Render, Vercel, Netlify`,
     Tech: React + Express + JWT | 100+ Active Users | 200+ Deals
 [3] CodeCrux - Competitive Programming Hub
     Tech: React + Clist API + Google Calendar Sync | +30% Engagement
-[4] NVIRI OMS - Enterprise Order Management System
-    Tech: Spring Boot + PostgreSQL + Flutter | +15% Efficiency`,
+[4] Autonomous LLM IT Engineer CLI @ Microland
+    Tech: Rust + Azure AKS + Neo4j Graph RAG + Gemini 2.0 Flash`,
 
   exp: `Work Experience:
 ---------------------------------------------
-Company: NVIRI Solutions (Software Intern, Jan 2025 – Apr 2025)
-  • Microservices: Built Spring Boot REST APIs with PostgreSQL (35+ tables).
-  • Mobile App: Engineered cross-platform Flutter client app (+25% productivity).
-  • Architecture: Enforced Clean Architecture for modular service boundaries.
-  • Performance: 15% improvement in backend data retrieval efficiency.`,
+Company: Microland (Tech Intern — Platforms Team, May 2026 – Present)
+  • Autonomous CLI: Built Rust CLI for Azure AKS infrastructure diagnosis & remediation.
+  • Graph RAG: Traced alert propagation across 60+ microservices using Neo4j & Gemini 2.0.
+  • Observe Webhooks: Re-engineered telemetry routing from legacy CRON to real-time webhooks.
+  • Cloud Native: Implemented multi-tenant SSH multiplexing on live Kubernetes clusters.`,
 
   ranks: `Honors & Leadership Ranks:
 ---------------------------------------------
